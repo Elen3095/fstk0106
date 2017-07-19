@@ -9,6 +9,7 @@
     <textarea name="two">
 
      </textarea>
+    <input type="submit">
 
 </form>
 

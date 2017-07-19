@@ -31,5 +31,5 @@ function returnCountWord($wordItem){
     <textarea name="wordInput">
 
     </textarea>
-
+    <input type="submit">
 </form>
