@@ -1,8 +1,20 @@
 <!--//6. Создать страницу, на которой можно загрузить несколько фотографий в галерею.-->
 <!--// Все загруженные фото должны помещаться в папку gallery и выводиться на странице в виде таблицы.-->
 <form method="post" enctype="multipart/form-data">
-    <input type="file" accept="image/jpeg, image/png" name="FileUpload" multiple>
+    <input type="file" accept="image/jpeg, image/png" name="FileUpload">
+    <br />
+    <input type="file" accept="image/jpeg, image/png" name="FileUpload">
+    <br />
+    <input type="file" accept="image/jpeg, image/png" name="FileUpload">
+    <br />
+    <input type="file" accept="image/jpeg, image/png" name="FileUpload">
+    <br />
+    <input type="file" accept="image/jpeg, image/png" name="FileUpload">
+    <br />
+    <input type="file" accept="image/jpeg, image/png" name="FileUpload">
+    <br />
     <input type="submit">
+    <br />
 
 </form>
 <?php
@@ -18,13 +30,17 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             file_get_contents($_FILES['FileUpload']['tmp_name']));
 
 
-        $file= fopen($imageDirPath.DIRECTORY_SEPARATOR.'test.jpg', 'w+');
+        $file= fopen($imageDirPath.DIRECTORY_SEPARATOR.$_FILES['FileUpload']['name'], 'w+');
         fwrite($file, file_get_contents($_FILES['FileUpload']['tmp_name']));
         $getContent=fgetc($file);
         fclose($file);
-
-
+        foreach ($_FILES['FileUpload']['tmp_name'] as $valueImg){
+            $fileToShow =file_get_contents($valueImg);
+            echo "<div style=\'float:right; height:200px\'>".$fileToShow."</div>";
+        }
         die('FileUpload: OK');
     }
 }
+
+
 ?>
