@@ -7,6 +7,11 @@
 
 </form>
 
+<p>encoding
+    Параметр encoding представляет собой символьную кодировку.
+    Если он опущен, вместо него будет использовано значение внутренней кодировки.</p>
+
+
 <?php
 $Words=$Words2=$Words3=$WordsToDelete=[];
 $N=$_POST['number'];
@@ -23,7 +28,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         foreach ($Words2 as $value2 ){
             $Words3=explode( ' ',$value2);
             foreach ($Words3 as $value3 ){
-                if($N < strlen($value3)){
+                if($N < mb_strlen($value3)){
                     array_push($WordsToDelete, $value3);
                 }
             }

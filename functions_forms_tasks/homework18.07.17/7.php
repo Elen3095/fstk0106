@@ -26,7 +26,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'&&isset($_POST['textToComment'])&&isset($_P
 //    }
 //    $seeComment=serialize($arrayOfCommentsToShow);
 }
-foreach ()
 ?>
 
 
