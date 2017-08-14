@@ -33,7 +33,7 @@ function createAction()
         file_put_contents(BOOKS_STORAGE, $book . PHP_EOL, FILE_APPEND);
         
         // add flash message
-        redirect('http://localhost/www/minisite2608/');
+        redirect('/');
     } 
     
     ob_start();
@@ -47,7 +47,7 @@ function editAction()
     
     if (!$id) {
         // todo: flash
-       redirect('http://localhost/www/minisite2608/');
+       redirect('/');
     }
     
     $books = loadBooks();
@@ -63,7 +63,7 @@ function editAction()
     
     if (!$bookFound) {
         // todo: flash
-        redirect('http://localhost/www/minisite2608/');
+        redirect('/');
     }
     
     if ($_POST) {
@@ -78,7 +78,7 @@ function editAction()
         }
         
         // add flash message
-        redirect('http://localhost/www/minisite2608/');
+        redirect('/');
     }
     
     ob_start();
@@ -105,7 +105,7 @@ function deleteAction()
 
     if (!$id) {
         // todo: flash
-        redirect('http://localhost/www/minisite2608/');
+        redirect('/');
     }
 
     $books = loadBooks();
@@ -121,7 +121,7 @@ function deleteAction()
 
     if (!$bookFound) {
         // todo: flash
-        redirect('http://localhost/www/minisite2608/');
+        redirect('/');
     }
 
     if ($_POST) {
@@ -142,7 +142,7 @@ function deleteAction()
         }
 
         // add flash message
-        redirect('http://localhost/www/minisite2608/');
+        redirect('/');
     }
 
     ob_start();

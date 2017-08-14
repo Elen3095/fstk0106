@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 
-$myLocalAdress='http://localhost/www/minisite2608/';
+//$myLocalAdress='http://localhost/www/minisite2608/';
 
 require 'functions.php';
 
