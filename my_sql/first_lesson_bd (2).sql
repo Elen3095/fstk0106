@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 16 2017 г., 20:00
+-- Время создания: Авг 17 2017 г., 22:14
 -- Версия сервера: 10.1.24-MariaDB
 -- Версия PHP: 7.1.6
 
@@ -126,7 +126,7 @@ ALTER TABLE `authors`
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `book_ibfk_2` FOREIGN KEY (`id`) REFERENCES `book` (`autor_id`) ON DELETE NO ACTION;
+  ADD CONSTRAINT `book_ibfk_2` FOREIGN KEY (`autor_id`) REFERENCES `authors` (`id`) ON DELETE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
