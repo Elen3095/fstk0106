@@ -1,17 +1,27 @@
  - получить название категории и среднюю цену для нее, отсортировать по цене
-
-select name, (select avg(price) from book)as avg from category join book on category.id=book.category_id group by category_id order by avg desc;
+select category_id, avg(price) as avg from book 
+GROUP BY category_id ORDER BY avg DESC;
 
 - получить самую дорогую книгу для каждого автора
 
-SELECT author_id, (SELECT max(price) FROM book) as max from book_author join book on book_author.book_id=book.id GROUP BY book_author.author_id ORDER BY max DESC;
+SELECT author_id,max(price) as max from book_author join book on book_author.book_id=book.id 
+
+GROUP BY book_author.author_id  
+ORDER BY max ASC;
+
 
 - выбрать авторов без книг
-SELECT author_id, title FROM book_author left join book on book_author.book_id=book.id and title is null GROUP by author_id;
+SELECT author.id, book_author.book_id 
+ FROM author
+ LEFT JOIN book_author ON author.id = book_author.author_id
+WHERE book_author.author_id IS NULL;
 
 - выбрать книги без авторов
-SELECT author_id, title FROM book_author right join book on book_author.book_id=book.id and author_id is null GROUP BY title;
-
+SELECT book.id as book, book_author.author_id as author
+ FROM book
+ LEFT JOIN book_author ON book.id = book_author.book_id
+WHERE book_author.book_id IS NULL  
+ORDER BY `book`.`id` ASC
 - получить книги у которых цена превышает среднюю цену по всем книгам (подзапрос)
 
 SELECT title, price from book where price>=(SELECT AVG(price) from book);
