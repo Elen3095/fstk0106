@@ -9,5 +9,5 @@ class A
 $x1=new A;
 $x2=new A;
 
-A::$count = 2; 
+A::$count = 2;
 echo A::$count;
